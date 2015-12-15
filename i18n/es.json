@@ -1,0 +1,39 @@
+{
+  "WHAT_IS_ANGULAR": "¿Qué es Angular?",
+  "WHAT_IS_ANGULAR_1": "Angular es un framework de JavaScript para desarrollo web en el lado del cliente. Permite:",
+  "WHAT_IS_ANGULAR_BP1": "Simplificar la comunicación con el servidor",
+  "WHAT_IS_ANGULAR_BP2": "Validar formularios",
+  "WHAT_IS_ANGULAR_BP3": "Escribir componentes reutilizables",
+  "WHAT_IS_ANGULAR_BP4": "Abstraer la manipulación del DOM",
+  "WHAT_IS_ANGULAR_BP5": "Sincronizar automáticamente las vistas y el modelo",
+  "WHAT_IS_ANGULAR_BP6": "Y un montón de cosas más que no caben en la diapositiva :-)",
+
+  "WHO_AM_I": "¿Quién soy?",
+
+  "AGAINST_VANILLA_1": "Imagina que quieres coger una lista de canciones de un servidor (en JSON) y mostrarla en el navegador.",
+  "AGAINST_VANILLA_2": "¿Cómo lo harías?",
+  "AGAINST_VANILLA_3_0": "Definir dónde y cómo mostrar los resultados (HTML)",
+  "AGAINST_VANILLA_3": "Enviar una petición GET al servidor",
+  "AGAINST_VANILLA_4": "Parsear el resultado como JSON",
+  "AGAINST_VANILLA_5": "Crear elementos en el DOM para cada canción",
+  "AGAINST_VANILLA_6": "Rellenar los elementos del DOM que has creado",
+  "AGAINST_VANILLA_RECAP": "Recapitulemos:",
+  "AGAINST_VANILLA_7": "Poner el resultado en $scope",
+  "AGAINST_VANILLA_8": "Dejar que Angular se ocupe del resto",
+
+  "STEP_1": "Paso 1",
+  "STEP_2": "Paso 2",
+  "RESULT": "Resultado",
+
+  "ANGULAR_EXAMPLE_1": "Hagamos lo mismo con Angular.",
+  "ANGULAR_EXAMPLE_2": "Escribamos el siguiente HTML:",
+  "ANGULAR_EXAMPLE_3": "Y este JavaScript:",
+  "ANGULAR_EXAMPLE_4": "Solo 4 líneas de código :-)",
+  "ANGULAR_EXAMPLE_5": "¿Y si queremos añadir canciones?",
+
+  "TWO_WAY_BINDING": "Two-way binding",
+  "TWO_WAY_BINDING_1": "Las variables que se guardan dentro de $scope se actualizan automáticamente en todas las vistas.",
+  "TWO_WAY_BINDING_2": "Otro ejemplo:",
+
+  "ANGULAR_APP_LOOKS": "¿Qué pinta tiene una aplicación de Angular?"
+}

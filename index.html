@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en" ng-app="ng-presentation">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>ng-presentation</title>
+
+    <meta name="description" content="A presentation about AngularJS">
+    <meta name="author" content="David Martín González">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/white.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-translate/angular-translate.min.js"></script>
+    <script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/MainCtrl.js"></script>
+</head>
+
+<body ng-controller="MainCtrl">
+
+<div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+        <section>
+            <h1>ng-presentation</h1>
+            <h3>David Martín-González</h3>
+        </section>
+
+        <section>
+            <h2>{{'WHO_AM_I' | translate}}</h2>
+        </section>
+
+        <section>
+            <h2>{{'WHAT_IS_ANGULAR' | translate}}</h2>
+            <p>{{'WHAT_IS_ANGULAR_1' | translate}}</p>
+            <ul>
+                <li>{{'WHAT_IS_ANGULAR_BP1' | translate}}</li>
+                <li>{{'WHAT_IS_ANGULAR_BP2' | translate}}</li>
+                <li>{{'WHAT_IS_ANGULAR_BP3' | translate}}</li>
+                <li>{{'WHAT_IS_ANGULAR_BP4' | translate}}</li>
+                <li>{{'WHAT_IS_ANGULAR_BP5' | translate}}</li>
+                <li>{{'WHAT_IS_ANGULAR_BP6' | translate}}</li>
+            </ul>
+        </section>
+
+        <section>
+            <p>{{'AGAINST_VANILLA_1' | translate}}</p>
+            <p>{{'AGAINST_VANILLA_2' | translate}}</p>
+            <ol>
+                <li class="fragment">{{'AGAINST_VANILLA_3_0' | translate}}</li>
+                <li class="fragment">{{'AGAINST_VANILLA_3' | translate}}</li>
+                <li class="fragment">{{'AGAINST_VANILLA_4' | translate}}</li>
+                <li class="fragment">{{'AGAINST_VANILLA_5' | translate}}</li>
+                <li class="fragment">{{'AGAINST_VANILLA_6' | translate}}</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>{{'STEP_1' | translate}}</h2>
+            <pre><code class="hljs" data-trim contenteditable>
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+    if (xhttp.readyState == 4 &&
+                xhttp.status == 200) {
+        var songs =
+                JSON.parse(xhttp.responseText);
+        showSongs(songs);
+    }
+};
+xhttp.open("GET", "songs.json", true);
+xhttp.send();
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>{{'STEP_2' | translate}}</h2>
+            <pre><code class="hljs" data-trim contenteditable>
+var showSongs = function(songs)
+{
+    var div = document.getElementById('songs');
+    var innerHtml = '<ul>';
+    for (var i = 0; i < songs.length; i++)
+    {
+        innerHtml += '<li>' + songs[i].author +
+                ': ' + songs[i].title + '</li>';
+    }
+    innerHtml += '</ul>';
+    div.innerHTML = innerHtml;
+}
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>{{'RESULT' | translate}}</h2>
+            <ul>
+                <li>Pony Bravo: La rave de Dios</li>
+                <li>Pharrell Williams: Happy</li>
+                <li>Pitbull: Ya tu sabeh</li>
+            </ul>
+        </section>
+
+        <section>
+            <p>
+                ¿Qué opinan de ese código?
+            </p>
+        </section>
+
+        <section>
+            <p>{{'ANGULAR_EXAMPLE_1' | translate}}</p>
+            <p>{{'ANGULAR_EXAMPLE_2' | translate}}</p>
+            <pre ng-non-bindable><code class="hljs" data-trim contenteditable>
+<div id="songs">
+    <ul>
+        <li ng-repeat="song in songs">
+            {{song.author}}: {{song.title}}
+        </li>
+    </ul>
+</div>
+            </code></pre>
+        </section>
+
+        <section>
+            <p>{{'ANGULAR_EXAMPLE_3' | translate}}</p>
+            <pre ng-non-bindable><code class="hljs" data-trim contenteditable>
+$html.get('songs.json').then(function(res)
+{
+    $scope.songs = res.data;
+});
+            </code></pre>
+            <p>{{'ANGULAR_EXAMPLE_4' | translate}}</p>
+        </section>
+
+        <section>
+            <p>{{'ANGULAR_EXAMPLE_5' | translate}}</p>
+            <pre ng-non-bindable><code class="hljs" data-trim contenteditable>
+// Without Angular
+songs.push({
+    author: 'Pepe Benavente',
+    title: 'El gallo sube'}
+);
+showSongs();
+            </code></pre>
+
+            <pre ng-non-bindable><code class="hljs" data-trim contenteditable>
+// With Angular
+$scope.songs.push({
+    author: 'Pepe Benavente',
+    title: 'El gallo sube'}
+);
+            </code></pre>
+        </section>
+
+        <section>
+            <p>{{'AGAINST_VANILLA_RECAP' | translate}}</p>
+            <ol>
+                <li>{{'AGAINST_VANILLA_3_0' | translate}}</li>
+                <li>{{'AGAINST_VANILLA_3' | translate}}</li>
+                <li class="strike">{{'AGAINST_VANILLA_4' | translate}}</li>
+                <li class="strike">{{'AGAINST_VANILLA_5' | translate}}</li>
+                <li class="strike">{{'AGAINST_VANILLA_6' | translate}}</li>
+                <li>{{'AGAINST_VANILLA_7' | translate}}</li>
+                <li>{{'AGAINST_VANILLA_8' | translate}}</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>{{'TWO_WAY_BINDING' | translate}}</h2>
+            <p>{{'TWO_WAY_BINDING_1' | translate}}</p>
+            <div class="fragment">
+
+                <p>{{'TWO_WAY_BINDING_2' | translate}}</p>
+                <pre ng-non-bindable><code class="hljs" data-trim contenteditable>
+<p>Your name:
+    <input type="text" ng-model="my_name"></p>
+<p>Hello {{ my_name }}!</p>
+                </code></pre>
+            </div>
+            <div class="fragment">
+                <p>Your name: <input type="text" ng-model="my_name"></p>
+                <p>Hello {{ my_name }}!</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>{{'ANGULAR_APP_LOOKS' | translate}}</h2>
+            <pre ng-non-bindable><code class="hljs" data-trim contenteditable>
+var app = angular.module('ng-presentation', []);
+
+app.controller('MainController',
+                function($scope, $html)
+{
+    $html.get('songs.json').then(function(res)
+    {
+        $scope.songs = res.data;
+    });
+});
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>{{'ANGULAR_APP_LOOKS' | translate}}</h2>
+            <pre ng-non-bindable><code class="hljs" data-trim contenteditable>
+&lt;html ng-app="ng-presentation">
+&lt;head>&lt;/head>
+&lt;body ng-controller="MainController">
+    <div id="songs">
+        <ul>
+            <li ng-repeat="song in songs">
+                {{song.author}}: {{song.title}}
+            </li>
+        </ul>
+    </div>
+&lt;/body>
+&lt;/html>
+            </code></pre>
+        </section>
+    </div>
+
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+            {
+                src: 'lib/js/classList.js', condition: function()
+            {
+                return !document.body.classList;
+            }
+            },
+            {
+                src: 'plugin/markdown/marked.js', condition: function()
+            {
+                return !!document.querySelector('[data-markdown]');
+            }
+            },
+            {
+                src: 'plugin/markdown/markdown.js', condition: function()
+            {
+                return !!document.querySelector('[data-markdown]');
+            }
+            },
+            {
+                src: 'plugin/highlight/highlight.js', async: true, callback: function()
+            {
+                hljs.initHighlightingOnLoad();
+            }
+            },
+            {src: 'plugin/zoom-js/zoom.js', async: true},
+            {src: 'plugin/notes/notes.js', async: true}
+        ]
+    });
+
+</script>
+
+</body>
+</html>
