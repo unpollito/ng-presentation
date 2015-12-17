@@ -12,8 +12,21 @@
     <script src="SongsController.js"></script>
 </head>
 <body ng-controller="SongsController">
-<h1>{{'MY_SONGS' | translate}}</h1>
-
-<div ng-view></div>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="brand" href="#">{{'MY_SONGS' | translate}}</a>
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li><a href="#/list">{{'VIEW_ALL_SONGS' | translate}}</a></li>
+                    <li><a href="#/add">{{'ADD_A_NEW_SONG' | translate}}</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div ng-view></div>
+</div>
 </body>
 </html>
