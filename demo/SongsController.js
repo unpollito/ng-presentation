@@ -1,4 +1,4 @@
-app.controller('SongsController', function($http, $scope, $location, SongService)
+app.controller('SongsController', function($http, $scope, $location, $translate, SongService)
 {
 	SongService.getAll().then(function(res)
 	{
@@ -50,4 +50,11 @@ app.controller('SongsController', function($http, $scope, $location, SongService
 			$location.path('#/list');
 		});
 	};
+
+	$scope.language = 'es';
+	$scope.switchLanguage = function(lang)
+	{
+		$scope.language = lang;
+		$translate.use(lang);
+	}
 });

@@ -20,6 +20,8 @@
                 <ul class="nav">
                     <li><a href="#/list">{{'VIEW_ALL_SONGS' | translate}}</a></li>
                     <li><a href="#/add">{{'ADD_A_NEW_SONG' | translate}}</a></li>
+                    <li ng-show="language === 'es'"><a ng-click="switchLanguage('en')">English version</a></li>
+                    <li ng-show="language === 'en'"><a ng-click="switchLanguage('es')">Versión en español</a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>

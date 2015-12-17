@@ -321,9 +321,9 @@ app.service('SongService', function($http, $q)
     var ENDPOINT = 'endpoint/index.php';
 
     var srv = {
-        getAll: function() { ... },
-        create: function(author, title) { ... },
-        delete: function(id) { ... }
+        getAll: function() {...},
+        create: function(author, title) {...},
+        delete: function(id) {...}
     };
 
     return srv;
@@ -355,8 +355,7 @@ getAll: function()
 app.controller('SongsController', function(
     $http, $scope, $location, SongService)
 {
-    SongService.getAll().then(
-        function(res)
+    SongService.getAll().then(function(res)
     {
         $scope.songs = res;
     }, function()
@@ -510,9 +509,10 @@ var app = angular.module('songs-demo',
             <pre ng-non-bindable><code class="hljs" data-trim contenteditable>
 app.config(function ($translateProvider) {
     $translateProvider.translations('en', {
-        MY_SONGS: 'My songs',
-        AUTHOR: 'Author',
-        TITLE: 'Title',
+        SEARCH: 'Search',
+        SEARCH_ALL_FIELDS:
+                'Search by any field...',
+        ADD_A_NEW_SONG: 'Add a new song',
         /* ... */
     });
     $translateProvider.translations('es', {

@@ -55,7 +55,7 @@
   "ROUTES": "Rutas",
   "ROUTES_1": "Podemos tener varias vistas dentro de la aplicación y que dependiendo de la URL, se muestre una u otra.",
   "ROUTES_2": "Por ejemplo, una vista para mostrar todas las canciones y una vista para añadir canciones nuevas.",
-  "ROUTES_3": "Necesitamos ngRouter para esto (no viene por defecto con Angular.",
+  "ROUTES_3": "Necesitamos ngRouter para esto (no viene por defecto con Angular).",
   "ROUTES_4": "Quitamos el código de ver y añadir canciones de la página principal...",
   "ROUTES_5": "...y creamos dos ficheros nuevos, views/add.html y views/list.html:",
 
@@ -77,9 +77,9 @@
   "ANIMATIONS": "Soporte para animaciones",
   "AND_ELSE": "Y alguna cosa que me estoy dejando seguro ;-)",
 
-  "ANGULAR_2_IS_COMING": "Angular 2 va a salir pronto.",
+  "ANGULAR_2_IS_COMING": "¡Angular 2 va a salir pronto!",
 
-  "LOOK_AT_EXAMPLES": "Veamos aplicaciones reales con Angular",
+  "LOOK_AT_EXAMPLES": "Veamos aplicaciones reales con Angular.",
 
   "SLIDES_AT": "Diapositivas en",
   "FULL_CODE_AT": "Código fuente completo en"
