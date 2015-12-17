@@ -1,4 +1,4 @@
-app.controller('MainCtrl', function($http, $scope)
+app.controller('MainCtrl', function($http, $scope, $translate)
 {
 	$http.get('demo/endpoint/index.php').then(function(res)
 	{
@@ -26,5 +26,13 @@ app.controller('MainCtrl', function($http, $scope)
 				$scope.new_song.author = '';
 				$scope.new_song.title = '';
 			});
+	};
+
+	$scope.language = 'es';
+
+	$scope.setLanguage = function(lang)
+	{
+		$scope.language = lang;
+		$translate.use(lang);
 	}
 });

@@ -215,9 +215,9 @@ $scope.songs.push({
             <h2>{{'ANGULAR_APP_LOOKS' | translate}}</h2>
             <pre ng-non-bindable><code class="hljs" data-trim contenteditable>
 var app =
-    angular.module('ng-presentation', []);
+    angular.module('songs-demo', []);
 
-app.controller('MainController',
+app.controller('SongsController',
                 function($scope, $html)
 {
     $html.get('songs.json').then(function(res)
@@ -231,9 +231,9 @@ app.controller('MainController',
         <section>
             <h2>{{'ANGULAR_APP_LOOKS' | translate}}</h2>
             <pre ng-non-bindable><code class="hljs" data-trim contenteditable>
-&lt;html ng-app="ng-presentation">
+&lt;html ng-app="songs-demo">
 &lt;head>&lt;/head>
-&lt;body ng-controller="MainController">
+&lt;body ng-controller="SongsController">
 <div>
     <ul>
         <li ng-repeat="song in songs">
@@ -367,6 +367,235 @@ app.controller('SongsController', function(
     // good things follow...
 }
             </code></pre>
+        </section>
+
+        <section>
+            <h2>{{'FILTERS' | translate}}</h2>
+            <p>{{'FILTERS_1' | translate}}</p>
+        </section>
+
+        <section>
+            <h2>{{'FILTERS' | translate}}</h2>
+<pre ng-non-bindable><code class="hljs" data-trim contenteditable>
+    &lt;h3>Search&lt;/h3>
+    &lt;input type="text"
+    placeholder="Search all fields"
+    ng-model="search">
+</code></pre>
+<pre ng-non-bindable><code class="hljs" data-trim contenteditable>
+&lt;ul>
+&lt;li
+ng-repeat="song in songs | filter: search">
+    {{song.author}}: {{song.title}}
+&lt;/li>
+&lt;/ul>
+</code></pre>
+        </section>
+
+        <section>
+            <h2>{{'FILTERS' | translate}}</h2>
+            <p>{{'THIS_LOOKS_LIKE_THIS' | translate}}</p>
+            <ul>
+                <li ng-repeat="song in songs1 | filter: search">
+                    {{song.author}}: {{song.title}}
+                </li>
+            </ul>
+            <h3>Search</h3>
+            <input type="text"
+            placeholder="Search all fields"
+            ng-model="search">
+        </section>
+
+        <section>
+            <h2>{{'ROUTES' | translate}}</h2>
+            <p>{{'ROUTES_1' | translate}}</p>
+            <p>{{'ROUTES_2' | translate}}</p>
+        </section>
+
+        <section>
+            <h2>{{'ROUTES' | translate}}</h2>
+            <p>{{'ROUTES_3' | translate}}</p>
+            <pre ng-non-bindable><code class="hljs" data-trim contenteditable>
+&lt;head>
+    &lt;script src="angular.js">&lt;/script>
+    &lt;script src="angular-route.js">&lt;/script>
+    &lt;!-- app bootstrapping, controllers,
+        services... -->
+&lt;/head>
+            </code></pre>
+
+            <pre ng-non-bindable><code class="hljs" data-trim contenteditable>
+var app = angular.module('songs-demo',
+    ['ngRoute']);
+                </code></pre>
+        </section>
+
+        <section>
+            <h2>{{'ROUTES' | translate}}</h2>
+            <pre ng-non-bindable><code class="hljs" data-trim contenteditable>
+app.config(['$routeProvider',
+    function($routeProvider)
+{
+    $routeProvider.when('/list', {
+        templateUrl: 'views/list.html'
+    }).
+    when('/add', {
+        templateUrl: 'views/add.html',
+    }).
+    otherwise({
+        redirectTo: '/list'
+    });
+}]);
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>{{'ROUTES' | translate}}</h2>
+            <p>{{'ROUTES_4' | translate}}</p>
+            <pre ng-non-bindable><code class="hljs" data-trim contenteditable>
+&lt;body ng-controller="SongsController">
+&lt;h1>My Songs&lt;/h1>
+&lt;div ng-view>&lt;/div>
+&lt;/body>
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>{{'ROUTES' | translate}}</h2>
+            <p>{{'ROUTES_5' | translate}}</p>
+            <pre ng-non-bindable><code class="hljs" data-trim contenteditable>
+&lt;h3>Add a new song&lt;/h3>
+&lt;input type="text"
+       placeholder="Author"
+       ng-model="new_song.author">
+<br>
+&lt;input type="text"
+       placeholder="Title"
+       ng-model="new_song.title">
+<br>
+&lt;button ng-click="addSong()">Add&lt;/button>
+&lt;p>&lt;a href="#/list">View all songs&lt;/a>&lt;/p>
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>{{'I18N_AND_L10N' | translate}}</h2>
+            <p>{{'I18N_AND_L10N_1' | translate}}</p>
+            <p>{{'I18N_AND_L10N_2' | translate}}</p>
+            <p>{{'I18N_AND_L10N_3' | translate}}</p>
+        </section>
+
+        <section>
+            <h2>{{'I18N_AND_L10N' | translate}}</h2>
+            <p>{{'I18N_AND_L10N_4' | translate}}</p>
+            <pre ng-non-bindable><code class="hljs" data-trim contenteditable>
+&lt;head>
+    &lt;script src="angular.js">&lt;/script>
+    &lt;script src="angular-route.js">&lt;/script>
+    &lt;script src="angular-translate.js">
+        &lt;/script>
+    &lt;!-- app bootstrapping, controllers,
+        services... -->
+&lt;/head>
+            </code></pre>
+
+            <pre ng-non-bindable><code class="hljs" data-trim contenteditable>
+var app = angular.module('songs-demo',
+    ['ngRoute', 'pascalprecht.translate']);
+                </code></pre>
+        </section>
+
+        <section>
+            <h2>{{'I18N_AND_L10N' | translate}}</h2>
+            <pre ng-non-bindable><code class="hljs" data-trim contenteditable>
+app.config(function ($translateProvider) {
+    $translateProvider.translations('en', {
+        MY_SONGS: 'My songs',
+        AUTHOR: 'Author',
+        TITLE: 'Title',
+        /* ... */
+    });
+    $translateProvider.translations('es', {
+        /* ... */
+    });
+    $translateProvider.preferredLanguage(
+        'es');
+});
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>{{'I18N_AND_L10N' | translate}}</h2>
+            <pre ng-non-bindable><code class="hljs" data-trim contenteditable>
+&lt;h3>{{'SEARCH' | translate}}&lt;/h3>
+&lt;input type="text"
+    placeholder="{{'SEARCH_ALL_FIELDS' | translate}}"
+    ng-model="search">
+&lt;p>&lt;a href="#/add">
+    {{'ADD_A_NEW_SONG' | translate}}&lt;/a>&lt;/p>
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>{{'I18N_AND_L10N' | translate}}</h2>
+            <p>{{'I18N_AND_L10N_5' | translate}}</p>
+            <pre ng-non-bindable><code class="hljs" data-trim contenteditable>
+app.controller('SongsController',
+    function($scope, $translate)
+{
+    $scope.language = 'es';
+    $scope.setLanguage = function(lang)
+    {
+        $scope.language = lang;
+        $translate.use(lang);
+    }
+});
+            </code></pre>
+            <p ng-show="language === 'es'">
+                <button ng-click="setLanguage('en')">
+                    {{'VIEW_SLIDES_IN_ENGLISH' | translate}}</button>
+            </p>
+            <p ng-show="language === 'en'">
+                <button ng-click="setLanguage('es')">
+                    {{'VIEW_SLIDES_IN_SPANISH' | translate}}</button>
+            </p>
+        </section>
+
+        <section>
+            <h2>{{'A_LOT_MORE_THINGS' | translate}}</h2>
+            <ul>
+                <li class="fragment">{{'DIRECTIVES' | translate}}
+                <li class="fragment">{{'FACTORIES' | translate}}</li>
+                <li class="fragment">{{'FORM_VALIDATION' | translate}}</li>
+                <li class="fragment">{{'UNIT_TESTS' | translate}}</li>
+                <li class="fragment">{{'ANIMATIONS' | translate}}</li>
+                <li class="fragment">{{'AND_ELSE' | translate}}</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Angular 2</h2>
+            <p>{{'ANGULAR_2_IS_COMING' | translate}}</p>
+        </section>
+
+        <section>
+            <h2>{{'LOOK_AT_EXAMPLES' | translate}}</h2>
+        </section>
+
+        <section>
+            <p>{{'SLIDES_AT' | translate}}
+                <a href="https://unpollito.github.io/ng-presentation">
+                    https://unpollito.github.io/ng-presentation</a>.
+            </p>
+            <p>{{'FULL_CODE_AT' | translate}}
+                <a href="https://github.com/unpollito/ng-presentation">
+                    https://github.com/unpollito/ng-presentation</a>.
+            </p>
+        </section>
+
+        <section>
+            <h1>ng-presentation</h1>
+            <h3>David Martín-González</h3>
         </section>
     </div>
 

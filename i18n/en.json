@@ -59,7 +59,7 @@
   "ROUTES_4": "Quitamos el código de ver y añadir canciones de la página principal...",
   "ROUTES_5": "...y creamos dos ficheros nuevos, views/add.html y views/list.html:",
 
-  "I18N_AND_L10N": "i18n y l10n",
+  "I18N_AND_L10N": "i18n and l10n",
   "I18N_AND_L10N_1": "Internacionalización es preparar una aplicación para utilizarla en varios países y con varios idiomas distintos.",
   "I18N_AND_L10N_2": "Localización es adaptar una aplicación para un país o idioma concretos (por ejemplo, traduciéndola).",
   "I18N_AND_L10N_3": "Angular soporta eso fácilmente.",
@@ -67,20 +67,5 @@
   "I18N_AND_L10N_5": "El idioma también se puede cambiar dinámicamente:",
 
   "VIEW_SLIDES_IN_ENGLISH": "Ver diapositivas en inglés",
-  "VIEW_SLIDES_IN_SPANISH": "Ver diapositivas en español",
-
-  "A_LOT_MORE_THINGS": "¡Angular tiene muchas cosas más!",
-  "DIRECTIVES": "Directivas",
-  "FACTORIES": "Factorías",
-  "FORM_VALIDATION": "Validación de formularios",
-  "UNIT_TESTS": "Tests unitarios (con librerías externas)",
-  "ANIMATIONS": "Soporte para animaciones",
-  "AND_ELSE": "Y alguna cosa que me estoy dejando seguro ;-)",
-
-  "ANGULAR_2_IS_COMING": "Angular 2 va a salir pronto.",
-
-  "LOOK_AT_EXAMPLES": "Veamos aplicaciones reales con Angular",
-
-  "SLIDES_AT": "Diapositivas en",
-  "FULL_CODE_AT": "Código fuente completo en"
+  "VIEW_SLIDES_IN_SPANISH": "Ver diapositivas en español"
 }

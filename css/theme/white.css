@@ -371,3 +371,9 @@ input {
 .reveal code {
     width: 100%;
 }
+
+button {
+    font-size: 0.8em;
+    padding: 0.1em 0.5em;
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+}
