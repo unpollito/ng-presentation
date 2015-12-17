@@ -367,3 +367,7 @@ input {
 .strike {
     text-decoration: line-through;
 }
+
+.reveal code {
+    width: 100%;
+}

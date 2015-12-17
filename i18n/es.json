@@ -10,6 +10,9 @@
 
   "WHO_AM_I": "¿Quién soy?",
 
+  "BUILD_DEMO_1": "Vamos a construir una aplicación de prueba.",
+  "BUILD_DEMO_2": "Veamos la aplicación.",
+
   "AGAINST_VANILLA_1": "Imagina que quieres coger una lista de canciones de un servidor (en JSON) y mostrarla en el navegador.",
   "AGAINST_VANILLA_2": "¿Cómo lo harías?",
   "AGAINST_VANILLA_3_0": "Definir dónde y cómo mostrar los resultados (HTML)",
@@ -24,6 +27,7 @@
   "STEP_1": "Paso 1",
   "STEP_2": "Paso 2",
   "RESULT": "Resultado",
+  "WHAT_DO_YOU_THINK": "¿Qué opinan de ese código?",
 
   "ANGULAR_EXAMPLE_1": "Hagamos lo mismo con Angular.",
   "ANGULAR_EXAMPLE_2": "Escribamos el siguiente HTML:",
@@ -35,5 +39,13 @@
   "TWO_WAY_BINDING_1": "Las variables que se guardan dentro de $scope se actualizan automáticamente en todas las vistas.",
   "TWO_WAY_BINDING_2": "Otro ejemplo:",
 
-  "ANGULAR_APP_LOOKS": "¿Qué pinta tiene una aplicación de Angular?"
+  "ANGULAR_APP_LOOKS": "¿Qué pinta tiene una aplicación de Angular?",
+
+  "CREATE_SONG": "Crear canciones",
+  "THIS_LOOKS_LIKE_THIS": "Esto se vería así:",
+
+  "SERVICES": "Servicios",
+  "SERVICES_1": "Por ahora tenemos todo el código en los controladores.",
+  "SERVICES_2": "¿Por qué es una mala idea esto?",
+  "SERVICES_3": "¿Podemos hacerlo mejor?"
 }

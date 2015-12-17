@@ -69,6 +69,11 @@
         </section>
 
         <section>
+            <p>{{'BUILD_DEMO_1' | translate}}</p>
+            <p><a href="demo/index.html">{{'BUILD_DEMO_2' | translate}}</a></p>
+        </section>
+
+        <section>
             <p>{{'AGAINST_VANILLA_1' | translate}}</p>
             <p>{{'AGAINST_VANILLA_2' | translate}}</p>
             <ol>
@@ -86,13 +91,13 @@
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function() {
     if (xhttp.readyState == 4 &&
-                xhttp.status == 200) {
+            xhttp.status == 200) {
         var songs =
-                JSON.parse(xhttp.responseText);
+            JSON.parse(xhttp.responseText);
         showSongs(songs);
     }
 };
-xhttp.open("GET", "songs.json", true);
+xhttp.open("GET", "endpoint/index.php", true);
 xhttp.send();
             </code></pre>
         </section>
@@ -102,15 +107,15 @@ xhttp.send();
             <pre><code class="hljs" data-trim contenteditable>
 var showSongs = function(songs)
 {
-    var div = document.getElementById('songs');
-    var innerHtml = '<ul>';
-    for (var i = 0; i < songs.length; i++)
-    {
-        innerHtml += '<li>' + songs[i].author +
-                ': ' + songs[i].title + '</li>';
-    }
-    innerHtml += '</ul>';
-    div.innerHTML = innerHtml;
+  var div = document.getElementById('songs');
+  var innerHtml = '<ul>';
+  for (var i = 0; i < songs.length; i++)
+  {
+      innerHtml += '<li>' + songs[i].author +
+              ': ' + songs[i].title + '</li>';
+  }
+  innerHtml += '</ul>';
+  div.innerHTML = innerHtml;
 }
             </code></pre>
         </section>
@@ -118,15 +123,15 @@ var showSongs = function(songs)
         <section>
             <h2>{{'RESULT' | translate}}</h2>
             <ul>
-                <li>Pony Bravo: La rave de Dios</li>
-                <li>Pharrell Williams: Happy</li>
-                <li>Pitbull: Ya tu sabeh</li>
+                <li ng-repeat="song in songs1">
+                    {{song.author}}: {{song.title}}
+                </li>
             </ul>
         </section>
 
         <section>
             <p>
-                ¿Qué opinan de ese código?
+                {{'WHAT_DO_YOU_THINK' | translate}}
             </p>
         </section>
 
@@ -147,12 +152,12 @@ var showSongs = function(songs)
         <section>
             <p>{{'ANGULAR_EXAMPLE_3' | translate}}</p>
             <pre ng-non-bindable><code class="hljs" data-trim contenteditable>
-$html.get('songs.json').then(function(res)
-{
-    $scope.songs = res.data;
-});
+$html.get('endpoint/index.php').then(
+    function(res)
+    {
+        $scope.songs = res.data;
+    });
             </code></pre>
-            <p>{{'ANGULAR_EXAMPLE_4' | translate}}</p>
         </section>
 
         <section>
@@ -163,7 +168,7 @@ songs.push({
     author: 'Pepe Benavente',
     title: 'El gallo sube'}
 );
-showSongs();
+showSongs(songs);
             </code></pre>
 
             <pre ng-non-bindable><code class="hljs" data-trim contenteditable>
@@ -209,7 +214,8 @@ $scope.songs.push({
         <section>
             <h2>{{'ANGULAR_APP_LOOKS' | translate}}</h2>
             <pre ng-non-bindable><code class="hljs" data-trim contenteditable>
-var app = angular.module('ng-presentation', []);
+var app =
+    angular.module('ng-presentation', []);
 
 app.controller('MainController',
                 function($scope, $html)
@@ -228,15 +234,138 @@ app.controller('MainController',
 &lt;html ng-app="ng-presentation">
 &lt;head>&lt;/head>
 &lt;body ng-controller="MainController">
-    <div id="songs">
-        <ul>
-            <li ng-repeat="song in songs">
-                {{song.author}}: {{song.title}}
-            </li>
-        </ul>
-    </div>
+<div>
+    <ul>
+        <li ng-repeat="song in songs">
+            {{song.author}}: {{song.title}}
+        </li>
+    </ul>
+</div>
 &lt;/body>
 &lt;/html>
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>{{'CREATE_SONG' | translate}}</h2>
+            <pre ng-non-bindable><code class="hljs" data-trim contenteditable>
+<h3>Add a new song</h3>
+&lt;input type="text" placeholder="Author"
+       ng-model="new_song.author">
+<br>
+&lt;input type="text" placeholder="Title"
+       ng-model="new_song.title">
+<br>
+<button ng-click="addSong()">Add</button>
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>{{'CREATE_SONG' | translate}}</h2>
+            <p>{{'THIS_LOOKS_LIKE_THIS' | translate}}</p>
+            <h3>Add a new song</h3>
+            <input type="text" placeholder="Author"
+            ng-model="new_song.author">
+            <br>
+            <input type="text" placeholder="Title"
+            ng-model="new_song.title">
+            <br>
+            <button ng-click="addSong()">Add</button>
+        </section>
+
+        <section>
+            <h2>{{'CREATE_SONG' | translate}}</h2>
+            <pre ng-non-bindable><code class="hljs" data-trim contenteditable>
+// Inside the controller
+$scope.new_song = {
+	author: '',
+	title: ''
+};
+            </code></pre>
+        </section>
+
+        <section>
+            <pre ng-non-bindable><code class="hljs" data-trim contenteditable>
+$scope.addSong = function()
+{
+    var author = $scope.new_song.author;
+    var title = $scope.new_song.title;
+    $http.post('endpoint/index.php',
+        {author: author, title: title}).then(
+    function(res)
+    {
+        $scope.songs.push({
+            author: author,
+            title: title,
+            id: res.data
+        });
+        $scope.new_song.author = '';
+        $scope.new_song.title = '';
+    });
+}
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>{{'SERVICES' | translate}}</h2>
+            <p>{{'SERVICES_1' | translate}}</p>
+            <p>{{'SERVICES_2' | translate}}</p>
+            <p>{{'SERVICES_3' | translate}}</p>
+        </section>
+
+        <section>
+            <h2>{{'SERVICES' | translate}}</h2>
+            <pre ng-non-bindable><code class="hljs" data-trim contenteditable>
+app.service('SongService', function($http, $q)
+{
+    var ENDPOINT = 'endpoint/index.php';
+
+    var srv = {
+        getAll: function() { ... },
+        create: function(author, title) { ... },
+        delete: function(id) { ... }
+    };
+
+    return srv;
+});
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>{{'SERVICES' | translate}}</h2>
+            <pre ng-non-bindable><code class="hljs" data-trim contenteditable>
+getAll: function()
+{
+    var deferred = $q.defer();
+    $http.get(ENDPOINT).then(function(res)
+    {
+        deferred.resolve(res.data);
+    }, function()
+    {
+        deferred.reject();
+    });
+    return deferred.promise;
+}
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>{{'SERVICES' | translate}}</h2>
+            <pre ng-non-bindable><code class="hljs" data-trim contenteditable>
+app.controller('SongsController', function(
+    $http, $scope, $location, SongService)
+{
+    SongService.getAll().then(
+        function(res)
+    {
+        $scope.songs = res;
+    }, function()
+    {
+        console.log('Could not fetch songs' +
+              '  from the server');
+    });
+    // good things follow...
+}
             </code></pre>
         </section>
     </div>

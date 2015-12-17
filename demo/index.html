@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="songs-demo">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+    <link href="bootstrap.css" type="text/css" rel="stylesheet">
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../bower_components/angular-translate/angular-translate.min.js"></script>
+    <script src="../bower_components/angular-route/angular-route.min.js"></script>
+    <script src="app.js"></script>
+    <script src="SongService.js"></script>
+    <script src="SongsController.js"></script>
+</head>
+<body ng-controller="SongsController">
+<h1>{{'MY_SONGS' | translate}}</h1>
+
+<div ng-view></div>
+</body>
+</html>

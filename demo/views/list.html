@@ -1,0 +1,21 @@
+<table>
+    <thead>
+    <tr>
+        <th>{{'AUTHOR' | translate}}</th>
+        <th>{{'TITLE' | translate}}</th>
+        <th>{{'DELETE' | translate}}</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="song in songs | filter: search">
+        <td>{{song.author}}</td>
+        <td>{{song.title}}</td>
+        <td><a href="#" ng-click="delete(song.id)">{{'DELETE' | translate}}</a></td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>{{'SEARCH' | translate}}</h3>
+<input type="text" placeholder="{{'SEARCH_ALL_FIELDS' | translate}}" ng-model="search">
+
+<p><a href="#/add">{{'ADD_A_NEW_SONG' | translate}}</a></p>
