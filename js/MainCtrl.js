@@ -18,7 +18,7 @@ app.controller('MainCtrl', function($http, $scope, $translate)
 			{author: author, title: title}).then(
 			function(res)
 			{
-				$scope.songs.push({
+				$scope.songs1.push({
 					author: author,
 					title: title,
 					id: res.data
